@@ -12,6 +12,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Beispiel: Simulierte Werte für die Status-Anzeigen
+    const int currentHearts = 1;
+    const int currentStreakDays = 7;
+    const bool isTodayStreakActive = false; // Beispiel: Heute geübt
+    const int totalDiamonds = 500;
+
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
@@ -26,30 +32,36 @@ class HomeScreen extends StatelessWidget {
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  StatusTile(
-                    flagImagePath: 'assets/images/de.png',
-                    label: 'German',
+                children: [
+                  // Flagge Zielsprache
+                  const StatusTile(
+                    type: StatusTileType.flag,
+                    targetLanguageCode: 'de',
                   ),
-                  StatusTile(
-                    iconData: Icons.local_fire_department,
-                    label: '7 Days',
+                  // Streak (7 Tage, aktiv)
+                  const StatusTile(
+                    type: StatusTileType.streak,
+                    value: currentStreakDays,
+                    isStreakActive: isTodayStreakActive,
                   ),
-                  StatusTile(iconData: Icons.diamond, label: '500'),
-                  StatusTile(iconData: Icons.favorite, label: '5'),
+                  // Diamant
+                  const StatusTile(
+                    type: StatusTileType.diamonds,
+                    value: totalDiamonds,
+                  ),
+                  // Herzen
+                  StatusTile(type: StatusTileType.hearts, value: currentHearts),
                 ],
               ),
             ),
             const SizedBox(height: 24),
-
-            // 2. Profil-Informationen
+            // ... Rest HomeScreen-Codes
             ProfileHeader(
               userName: 'Aydin',
               mottoText: 'Word by word to success.',
             ),
             const SizedBox(height: 24),
 
-            // 3. Erweiterbarer und scrollbarer Bereich für den Inhalt
             Expanded(
               child: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
@@ -64,7 +76,6 @@ class HomeScreen extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // StatCards
                               Row(
                                 children: const [
                                   StatCard(
@@ -92,15 +103,6 @@ class HomeScreen extends StatelessWidget {
                               ),
                               const SizedBox(height: 24),
 
-                              // Fortschrittsanzeigen Überschrift
-                              Text(
-                                'Your Level Progress',
-                                style: Theme.of(context).textTheme.headlineSmall
-                                    ?.copyWith(color: AppColors.textColor),
-                              ),
-                              const SizedBox(height: 16),
-
-                              // Fortschrittsanzeigen
                               ProgressIndicatorCard(
                                 title: 'A1',
                                 progressValue: 0.80,
@@ -113,10 +115,21 @@ class HomeScreen extends StatelessWidget {
                                 progressColor: AppColors.primaryColor,
                               ),
                               const SizedBox(height: 16),
-                              // Test için eklenen kartlar (kaydırmayı doğrulamak için)
                               ProgressIndicatorCard(
                                 title: 'B1 (Test)',
                                 progressValue: 0.75,
+                                progressColor: AppColors.primaryColor,
+                              ),
+                              const SizedBox(height: 16),
+                              ProgressIndicatorCard(
+                                title: 'B2 (Test)',
+                                progressValue: 0.40,
+                                progressColor: AppColors.primaryColor,
+                              ),
+                              const SizedBox(height: 16),
+                              ProgressIndicatorCard(
+                                title: 'C1 (Test)',
+                                progressValue: 0.20,
                                 progressColor: AppColors.primaryColor,
                               ),
                               const SizedBox(height: 16),
@@ -129,9 +142,7 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 16),
 
-            // "Let's go" Button (Sabitlenen kısım)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Center(
@@ -143,7 +154,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 16), // BottomNavigationBar'a olan mesafe
+            const SizedBox(height: 16),
           ],
         ),
       ),
