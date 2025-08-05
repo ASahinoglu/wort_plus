@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wort_plus/utils/app_colors.dart'; // Für die Farbdefinitionen
+import 'package:wort_plus/src/theme/app_colors.dart'; // Für die Farbdefinitionen
 
 class ProfileHeader extends StatelessWidget {
   final String userName; // Der Name des Benutzers (z.B. "Aydin")

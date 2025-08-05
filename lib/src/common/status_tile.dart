@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wort_plus/utils/app_colors.dart'; // Für die Farbdefinitionen
+import 'package:wort_plus/src/theme/app_colors.dart'; // Für die Farbdefinitionen
 
 // Enum, um den Typ der Statusanzeige zu definieren
 enum StatusTileType {

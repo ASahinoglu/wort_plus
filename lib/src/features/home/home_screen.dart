@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:wort_plus/utils/app_colors.dart';
+import 'package:wort_plus/src/theme/app_colors.dart';
 // Importiere benutzerdefinierte Widgets
-import 'package:wort_plus/widgets/stat_card.dart';
-import 'package:wort_plus/widgets/progress_indicator_card.dart';
-import 'package:wort_plus/widgets/status_tile.dart';
-import 'package:wort_plus/widgets/profile_header.dart';
-import 'package:wort_plus/widgets/custom_elevated_button.dart';
+import 'package:wort_plus/src/common/stat_card.dart';
+import 'package:wort_plus/src/common/progress_indicator_card.dart';
+import 'package:wort_plus/src/common/status_tile.dart';
+import 'package:wort_plus/src/common/profile_header.dart';
+import 'package:wort_plus/src/common/custom_elevated_button.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -142,19 +142,18 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
             ),
-
+            SizedBox(height: 8.0),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
+
               child: Center(
                 child: CustomElevatedButton(
                   text: 'Let\'s go',
-                  onPressed: () {
-                    print('Let\'s go Button getippt');
-                  },
+                  onPressed: () {},
                 ),
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8.0),
           ],
         ),
       ),

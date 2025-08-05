@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wort_plus/utils/app_colors.dart'; // Für die Farbdefinitionen
+import 'package:wort_plus/src/theme/app_colors.dart'; // Für die Farbdefinitionen
 
 class StatCard extends StatefulWidget {
   final String value; // Der Wert (z.B. "500" oder "100")
