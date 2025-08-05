@@ -1,16 +1,25 @@
-# wort_plus
+# WortPlus
 
-A new Flutter project.
+**WortPlus** ist eine mehrsprachige Wortschatz-Lern-App, die mit Flutter entwickelt wurde.  
+Ziel ist es, den aktiven und nachhaltigen Spracherwerb durch realistische Beispielsätze, Quizformate und Fortschrittsanalysen zu fördern.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Vokabeln nach Wortarten (Nomen, Verben, usw.) und Niveaustufen (A1–B2) sortiert
+- Realistische Beispielsätze für jedes Wort
+- Text-to-Speech: Hör dir die richtige Aussprache an
+- Wörter als „gelernt“ markieren oder zur Wiederholung vormerken
+- Quizfunktion zur Überprüfung des Wortschatzes
+- Lernfortschrittsanzeige mit täglichen und wöchentlichen Zielen
+- Favoriten & persönliche Lernziele im Profil
 
-A few resources to get you started if this is your first Flutter project:
+## Ziele der App
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Die App hilft dir, deinen Wortschatz in einer neuen Sprache systematisch und kontextbasiert zu erweitern. Durch Wiederholung, Anwendung im Quiz und Audiohilfen soll vor allem das **aktive Erinnern** und **Sprechen** gefördert werden.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Tech Stack
+
+- **Flutter** für plattformübergreifende UI
+- **Dart** als Programmiersprache
+
+
