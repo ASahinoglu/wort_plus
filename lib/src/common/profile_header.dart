@@ -16,7 +16,7 @@ class ProfileHeader extends StatelessWidget {
     return Container(
       color: AppColors.primaryColor, // Hintergrundfarbe des Headers
       // Nur vertikalen Padding auf den Container anwenden, damit die Farbe durchgeht
-      padding: const EdgeInsets.symmetric(vertical: 20.0),
+      padding: const EdgeInsets.symmetric(vertical: 24.0),
       child: Padding(
         // NEU: Padding für den Inhalt der Row
         padding: const EdgeInsets.symmetric(

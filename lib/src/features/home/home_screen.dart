@@ -12,12 +12,6 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Beispiel: Simulierte Werte für die Status-Anzeigen
-    const int currentHearts = 1;
-    const int currentStreakDays = 7;
-    const bool isTodayStreakActive = false; // Beispiel: Heute geübt
-    const int totalDiamonds = 500;
-
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: SafeArea(
@@ -25,42 +19,30 @@ class HomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // 1. Status-Leiste
+            // 1. Status-Leiste (mit zentralen Werten aus AppData)
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
                 vertical: 0.0,
               ),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  // Flagge Zielsprache
-                  const StatusTile(
-                    type: StatusTileType.flag,
-                    targetLanguageCode: 'de',
-                  ),
-                  // Streak (7 Tage, aktiv)
-                  const StatusTile(
-                    type: StatusTileType.streak,
-                    value: currentStreakDays,
-                    isStreakActive: isTodayStreakActive,
-                  ),
-                  // Diamant
-                  const StatusTile(
-                    type: StatusTileType.diamonds,
-                    value: totalDiamonds,
-                  ),
-                  // Herzen
-                  StatusTile(type: StatusTileType.hearts, value: currentHearts),
+                  StatusTile(type: StatusTileType.flag),
+                  StatusTile(type: StatusTileType.streak),
+                  StatusTile(type: StatusTileType.diamonds),
+                  StatusTile(type: StatusTileType.hearts),
                 ],
               ),
             ),
-            const SizedBox(height: 24),
+
+            const SizedBox(height: 18),
             // ... Rest HomeScreen-Codes
             ProfileHeader(
               userName: 'Aydin',
               mottoText: 'Word by word to success.',
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
 
             Expanded(
               child: LayoutBuilder(
@@ -74,7 +56,8 @@ class HomeScreen extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Row(
                                 children: const [
@@ -82,19 +65,19 @@ class HomeScreen extends StatelessWidget {
                                     value: '1100',
                                     label: 'Total Points',
                                   ),
-                                  SizedBox(width: 16),
+                                  SizedBox(width: 24),
                                   StatCard(
                                     value: '550',
                                     label: 'Words Learned',
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 28),
 
                               Row(
                                 children: const [
                                   StatCard(value: '87%', label: 'Quiz Success'),
-                                  SizedBox(width: 16),
+                                  SizedBox(width: 24),
                                   StatCard(
                                     value: '5 hrs 10 mins',
                                     label: 'Total Time',
@@ -108,31 +91,31 @@ class HomeScreen extends StatelessWidget {
                                 progressValue: 0.80,
                                 progressColor: AppColors.primaryColor,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 8),
                               ProgressIndicatorCard(
                                 title: 'A2',
                                 progressValue: 0.50,
                                 progressColor: AppColors.primaryColor,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 8),
                               ProgressIndicatorCard(
                                 title: 'B1 (Test)',
                                 progressValue: 0.75,
                                 progressColor: AppColors.primaryColor,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 8),
                               ProgressIndicatorCard(
                                 title: 'B2 (Test)',
                                 progressValue: 0.40,
                                 progressColor: AppColors.primaryColor,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 8),
                               ProgressIndicatorCard(
                                 title: 'C1 (Test)',
                                 progressValue: 0.20,
                                 progressColor: AppColors.primaryColor,
                               ),
-                              const SizedBox(height: 16),
+                              const SizedBox(height: 8),
                             ],
                           ),
                         ),
@@ -142,18 +125,19 @@ class HomeScreen extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: 8.0),
+            SizedBox(height: 24.0),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
 
               child: Center(
                 child: CustomElevatedButton(
                   text: 'Let\'s go',
+                  width: 150.0,
                   onPressed: () {},
                 ),
               ),
             ),
-            const SizedBox(height: 8.0),
+            const SizedBox(height: 24.0),
           ],
         ),
       ),

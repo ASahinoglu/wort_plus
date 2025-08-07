@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:wort_plus/src/theme/app_colors.dart'; // Für die Farbdefinitionen
+import 'package:wort_plus/src/theme/app_colors.dart';
+import 'package:wort_plus/src/data/app_data.dart'; // Für die Farbdefinitionen
 
 // Enum, um den Typ der Statusanzeige zu definieren
 enum StatusTileType {
@@ -9,68 +10,35 @@ enum StatusTileType {
   hearts, // Für Herzen
 }
 
-class StatusTile extends StatefulWidget {
+class StatusTile extends StatelessWidget {
   final StatusTileType type; // Der Typ der Statusanzeige
-  final String? targetLanguageCode; // Nur für type: flag (z.B. 'de')
-  final int? value; // Für type: streak (Anzahl Tage), diamands , hearts
-  final bool? isStreakActive; // Nur für type: streak (true = rot, false = weiß)
 
-  const StatusTile({
-    super.key,
-    required this.type,
-    this.targetLanguageCode,
-    this.value,
-    this.isStreakActive,
-  }) : assert(
-         // Assertions, um sicherzustellen, dass die richtigen Parameter für den jeweiligen Typ übergeben werden
-         (type == StatusTileType.flag &&
-                 targetLanguageCode != null &&
-                 value == null &&
-                 isStreakActive == null) ||
-             (type == StatusTileType.streak &&
-                 value != null &&
-                 isStreakActive != null &&
-                 targetLanguageCode == null) ||
-             (type == StatusTileType.diamonds &&
-                 value != null &&
-                 targetLanguageCode == null &&
-                 isStreakActive == null) ||
-             (type == StatusTileType.hearts &&
-                 value != null &&
-                 targetLanguageCode == null &&
-                 isStreakActive == null),
-         'Ungültige Parameterkombination für StatusTileType: $type',
-       );
+  const StatusTile({super.key, required this.type});
 
-  @override
-  State<StatusTile> createState() => _StatusTileState();
-}
-
-class _StatusTileState extends State<StatusTile> {
   @override
   Widget build(BuildContext context) {
     Widget contentWidget; // Widget, das entweder das Icon oder das Bild enthält
     String displayText = ''; // Der Text unter dem Icon/Bild
 
-    switch (widget.type) {
+    switch (type) {
       case StatusTileType.flag:
         // Logik für Flaggen
         contentWidget = ClipOval(
           child: Image.asset(
-            'assets/images/${widget.targetLanguageCode!}.png', // z.B. assets/images/de.png
+            'assets/images/${AppData.targetLanguageCode}.png', // z.B. assets/images/de.png
             width: 40,
             height: 40,
             fit: BoxFit.cover,
           ),
         );
         // Text entsprechend dem Ländercode anpassen
-        switch (widget.targetLanguageCode) {
+        switch (AppData.targetLanguageCode) {
           case 'de':
             displayText = 'German';
             break;
           // Fügen Sie hier weitere Fälle für andere Sprachen hinzu (z.B. 'en': displayText = 'English';)
           default:
-            displayText = 'Langueage'; // Fallback
+            displayText = 'Language'; // Fallback
         }
         break;
 
@@ -78,12 +46,12 @@ class _StatusTileState extends State<StatusTile> {
         // Logik für Übungs-Streak (Tage)
         contentWidget = Icon(
           Icons.local_fire_department,
-          color: widget.isStreakActive!
+          color: AppData.isTodayStreakActive
               ? AppColors.textColor
               : AppColors.backgroundColor, // Rot wenn aktiv, Weiß wenn inaktiv
           size: 36,
         );
-        displayText = '${widget.value!} Days'; // z.B. "7 Tage"
+        displayText = '${AppData.streakDays} Days'; // z.B. "7 Tage"
         break;
 
       case StatusTileType.diamonds:
@@ -93,19 +61,19 @@ class _StatusTileState extends State<StatusTile> {
           color: AppColors.textColor,
           size: 36,
         );
-        displayText = widget.value!.toString(); // z.B. "500"
+        displayText = AppData.diamonds.toString(); // z.B. "500"
         break;
 
       case StatusTileType.hearts:
         // Logik für Herzen
-        final int clampedHearts = widget.value!.clamp(
+        final int clampedHearts = AppData.hearts.clamp(
           0,
-          5,
+          AppData.maxHearts,
         ); // Sicherstellen, dass der Wert zwischen 0 und 5 liegt
         final String heartImagePath =
             'assets/images/heart$clampedHearts.png'; // z.B. assets/images/heart3.png
         contentWidget = Image.asset(heartImagePath, width: 50, height: 50);
-        displayText = widget.value!.toString(); // z.B. "5"
+        displayText = AppData.hearts.toString(); // z.B. "5"
         break;
     }
 

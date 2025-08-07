@@ -28,7 +28,7 @@ class _ProgressIndicatorCardState extends State<ProgressIndicatorCard> {
 
     return Container(
       padding: const EdgeInsets.all(
-        16,
+        12,
       ), // Innenabstand für den Inhalt der Karte
       decoration: BoxDecoration(
         color: AppColors
@@ -37,7 +37,7 @@ class _ProgressIndicatorCardState extends State<ProgressIndicatorCard> {
         border: Border.all(
           color:
               AppColors.secondaryColor, // Rahmenfarbe: Primärfarbe (hellblau)
-          width: 1, // Rahmenstärke
+          width: 2, // Rahmenstärke
         ),
       ),
       child: Column(
@@ -53,7 +53,7 @@ class _ProgressIndicatorCardState extends State<ProgressIndicatorCard> {
                 widget.title, // Titel anzeigen
                 style: Theme.of(
                   context,
-                ).textTheme.labelLarge?.copyWith(color: AppColors.primaryColor),
+                ).textTheme.labelLarge?.copyWith(color: AppColors.textColor),
               ),
               Text(
                 '$percentage%', // Angezeigter Prozentsatz
@@ -64,7 +64,7 @@ class _ProgressIndicatorCardState extends State<ProgressIndicatorCard> {
             ],
           ),
           const SizedBox(
-            height: 8,
+            height: 4,
           ), // Abstand zwischen Überschrift/Prozent und Fortschrittsbalken
           LinearProgressIndicator(
             value: widget.progressValue, // Fortschrittswert

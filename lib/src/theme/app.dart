@@ -70,13 +70,15 @@ class AppTheme {
           color: AppColors.textColor,
         ),
       ),
+
+      //Button
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primaryColor,
           foregroundColor: AppColors.textColor,
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(12.0),
           ),
           textStyle: const TextStyle(
             fontFamily: 'Poppins',
@@ -85,6 +87,8 @@ class AppTheme {
           ),
         ),
       ),
+
+      //Bottom Nav
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: AppColors.primaryColor,
         iconTheme: WidgetStateProperty.resolveWith<IconThemeData?>((states) {

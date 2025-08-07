@@ -17,6 +17,8 @@ class _StatCardState extends State<StatCard> {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+        constraints: BoxConstraints(minHeight: 90.0, minWidth: 150.0),
+
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: AppColors.backgroundColor,
@@ -24,11 +26,12 @@ class _StatCardState extends State<StatCard> {
           borderRadius: BorderRadius.circular(12), // Abgerundete Ecken
           border: Border.all(
             color: AppColors.secondaryColor,
+            width: 2.0,
           ), // Leichter Rahmen
         ),
         child: Column(
-          crossAxisAlignment:
-              CrossAxisAlignment.center, // Inhalt linksbündig ausrichten
+          mainAxisAlignment:
+              MainAxisAlignment.center, // Inhalt linksbündig ausrichten
           children: [
             // Zuerst die Beschriftung (Label)
             Text(
@@ -37,7 +40,7 @@ class _StatCardState extends State<StatCard> {
                 context,
               ).textTheme.labelLarge?.copyWith(color: AppColors.primaryColor),
             ),
-            const SizedBox(height: 4), // Abstand zwischen Beschriftung und Wert
+            const SizedBox(height: 8), // Abstand zwischen Beschriftung und Wert
             // Dann der Wert (Value)
             Text(
               widget.value, // Angezeigter Wert
