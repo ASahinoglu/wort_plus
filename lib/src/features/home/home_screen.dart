@@ -18,8 +18,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // 1. Status-Leiste
-            // 1. Status-Leiste (mit zentralen Werten aus AppData)
+            // ✅ 1. Status-Leiste (mit zentralen Werten aus AppData)
             Padding(
               padding: const EdgeInsets.symmetric(
                 horizontal: 16.0,
@@ -37,13 +36,13 @@ class HomeScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 18),
-            // ... Rest HomeScreen-Codes
+            // ✅ Profil Header
             ProfileHeader(
               userName: 'Aydin',
               mottoText: 'Word by word to success.',
             ),
             const SizedBox(height: 20),
-
+            // ✅ Inhalt
             Expanded(
               child: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
@@ -55,6 +54,7 @@ class HomeScreen extends StatelessWidget {
                       child: IntrinsicHeight(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                          // ✅ Stat Cards
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -85,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                                 ],
                               ),
                               const SizedBox(height: 24),
-
+                              // ✅ Progress Cards
                               ProgressIndicatorCard(
                                 title: 'A1',
                                 progressValue: 0.80,
@@ -128,7 +128,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 24.0),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
-
+              // ✅ Button
               child: Center(
                 child: CustomElevatedButton(
                   text: 'Let\'s go',
