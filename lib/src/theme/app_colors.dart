@@ -19,9 +19,11 @@ class AppColors {
   static const Color accentColor = Color(
     0xFFCBA6F7,
   ); // Für visuelle Highlights, Icons
+  //static const Color accentColor = Color(0xFFF7B2B0);
   static const Color errorColor = Color(0xFFF28B82); // Für Fehlermeldungen
   static const Color successColor = Color(0xFF7ED7A5); // Feedback bei Erfolg
-  static const Color infoColor = Color(
-    0xFFFFCB8E,
-  ); // Hinweise, Tipps oder neutrale Benachrichtigungen
+  static const Color infoColor = Color(0xFFFFCB8E);
+  // level card hintergrund
+  static const Color quizBackground = Color(0xFF6F589A);
+  static const Color learnBackground = backgroundColor;
 }

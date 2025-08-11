@@ -58,6 +58,7 @@ class _LearnScreenState extends State<LearnScreen> {
                     selectedTab = index;
                   });
                 },
+                type: SegmentSwitcherType.learn,
               ),
             ),
             const SizedBox(height: 24),

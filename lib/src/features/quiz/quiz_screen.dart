@@ -58,6 +58,7 @@ class _LearnScreenState extends State<QuizScreen> {
                     selectedTab = index;
                   });
                 },
+                type: SegmentSwitcherType.quiz,
               ),
             ),
             const SizedBox(height: 24),
@@ -85,6 +86,7 @@ class _LearnScreenState extends State<QuizScreen> {
             description:
                 'You understand and use simple words and phrases for everyday situations.',
             buttonText: 'Begin',
+            type: LevelCardType.quiz,
           ),
           SizedBox(height: 24),
           LevelCard(
@@ -92,6 +94,7 @@ class _LearnScreenState extends State<QuizScreen> {
             description:
                 'You understand common expressions and can communicate in basic daily situations.',
             buttonText: 'Begin',
+            type: LevelCardType.quiz,
           ),
         ],
       );
@@ -104,6 +107,7 @@ class _LearnScreenState extends State<QuizScreen> {
             description:
                 'Replace nouns to avoid repetition or to refer back to something.',
             buttonText: 'Begin',
+            type: LevelCardType.quiz,
           ),
           SizedBox(height: 24),
           LevelCard(
@@ -111,6 +115,7 @@ class _LearnScreenState extends State<QuizScreen> {
             description:
                 'Show relationships between words or parts of a sentence.',
             buttonText: 'Begin',
+            type: LevelCardType.quiz,
           ),
         ],
       );

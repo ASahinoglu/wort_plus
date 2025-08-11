@@ -1,27 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:wort_plus/src/theme/app_colors.dart';
 
+enum SegmentSwitcherType { learn, quiz }
+
 class SegmentSwitcher extends StatelessWidget {
   final int selectedIndex;
   final Function(int) onTabChanged;
+  final SegmentSwitcherType type;
 
   const SegmentSwitcher({
     super.key,
     required this.selectedIndex,
     required this.onTabChanged,
+    this.type = SegmentSwitcherType.learn, // Standard
   });
 
   @override
   Widget build(BuildContext context) {
+    final isQuiz = type == SegmentSwitcherType.quiz;
+
+    final Color borderColor = isQuiz
+        ? AppColors.secondaryColor
+        : AppColors.secondaryColor;
+
     return Center(
       child: ConstrainedBox(
-        constraints: const BoxConstraints(
-          maxWidth: 300.0,
-          maxHeight: 32.0,
-        ), // Begrenzung auf max 400 px
+        constraints: const BoxConstraints(maxWidth: 300.0, maxHeight: 32.0),
         child: Container(
           decoration: BoxDecoration(
-            border: Border.all(color: AppColors.secondaryColor),
+            border: Border.all(color: borderColor),
             borderRadius: BorderRadius.circular(8.0),
           ),
           child: Row(
@@ -37,6 +44,11 @@ class SegmentSwitcher extends StatelessWidget {
 
   Widget _buildTab(BuildContext context, String label, int index) {
     final isSelected = index == selectedIndex;
+    final isQuiz = type == SegmentSwitcherType.quiz;
+
+    final Color selectedColor = isQuiz
+        ? AppColors.primaryColor
+        : AppColors.primaryColor;
 
     return Expanded(
       child: GestureDetector(
@@ -44,7 +56,7 @@ class SegmentSwitcher extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 4.0),
           decoration: BoxDecoration(
-            color: isSelected ? AppColors.primaryColor : Colors.transparent,
+            color: isSelected ? selectedColor : Colors.transparent,
             borderRadius: BorderRadius.circular(8.0),
           ),
           child: Center(
