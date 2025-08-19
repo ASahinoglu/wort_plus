@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:wort_plus/src/theme/app_colors.dart';
-// Importiere benutzerdefinierte Widgets
 import 'package:wort_plus/src/common/stat_card.dart';
 import 'package:wort_plus/src/common/progress_indicator_card.dart';
 import 'package:wort_plus/src/common/status_tile.dart';
