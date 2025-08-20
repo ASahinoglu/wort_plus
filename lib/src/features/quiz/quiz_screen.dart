@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wort_plus/src/common/status_tile.dart';
-import 'package:wort_plus/src/common/level_card.dart';
+import '../quiz/level_card.dart';
 import 'package:wort_plus/src/common/section_header.dart';
 import 'package:wort_plus/src/common/segment_switcher.dart';
 import 'package:wort_plus/src/theme/app_colors.dart';

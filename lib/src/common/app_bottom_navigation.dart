@@ -26,11 +26,11 @@ class AppBottomNavigationBar extends StatelessWidget {
           selectedIcon: Icon(Icons.menu_book),
           label: 'Learn',
         ),
-        NavigationDestination(
+        /*NavigationDestination(
           icon: Icon(Icons.assignment),
           selectedIcon: Icon(Icons.assignment),
           label: 'Quiz',
-        ),
+        ),*/
         NavigationDestination(
           icon: Icon(Icons.person_outline),
           selectedIcon: Icon(Icons.person),

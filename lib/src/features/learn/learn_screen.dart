@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wort_plus/src/common/status_tile.dart';
-import 'package:wort_plus/src/common/level_card.dart';
+import 'package:wort_plus/src/common/category_card.dart';
 import 'package:wort_plus/src/common/section_header.dart';
 import 'package:wort_plus/src/common/segment_switcher.dart';
 import 'package:wort_plus/src/theme/app_colors.dart';
@@ -81,18 +81,20 @@ class _LearnScreenState extends State<LearnScreen> {
       // ✅ LEVEL-TAB
       return ListView(
         children: const [
-          LevelCard(
+          CategoryCard(
             title: 'A1 (Beginner)',
             description:
                 'You understand and use simple words and phrases for everyday situations.',
             buttonText: 'Learn',
+            type: CategoryCardType.level,
           ),
           SizedBox(height: 24),
-          LevelCard(
+          CategoryCard(
             title: 'A2 (Elementary)',
             description:
                 'You understand common expressions and can communicate in basic daily situations.',
             buttonText: 'Learn',
+            type: CategoryCardType.level,
           ),
         ],
       );
@@ -100,18 +102,20 @@ class _LearnScreenState extends State<LearnScreen> {
       // ✅ WORD TYPES TAB
       return ListView(
         children: const [
-          LevelCard(
+          CategoryCard(
             title: 'Pronouns',
             description:
                 'Replace nouns to avoid repetition or to refer back to something.',
             buttonText: 'Learn',
+            type: CategoryCardType.wordtype,
           ),
           SizedBox(height: 24),
-          LevelCard(
+          CategoryCard(
             title: 'Prepositions',
             description:
                 'Show relationships between words or parts of a sentence.',
             buttonText: 'Learn',
+            type: CategoryCardType.wordtype,
           ),
         ],
       );
