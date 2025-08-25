@@ -1,8 +1,12 @@
+//learn_screen.dart
+
 import 'package:flutter/material.dart';
 import 'package:wort_plus/src/common/status_tile.dart';
 import 'package:wort_plus/src/common/category_card.dart';
 import 'package:wort_plus/src/common/section_header.dart';
 import 'package:wort_plus/src/common/segment_switcher.dart';
+import 'package:wort_plus/src/features/learn/presentation/learning_screen.dart';
+import 'package:wort_plus/src/features/learn/presentation/quizzing_screen.dart';
 import 'package:wort_plus/src/theme/app_colors.dart';
 
 class LearnScreen extends StatefulWidget {
@@ -80,13 +84,27 @@ class _LearnScreenState extends State<LearnScreen> {
     if (selectedTab == 0) {
       // ✅ LEVEL-TAB
       return ListView(
-        children: const [
+        children: [
           CategoryCard(
             title: 'A1 (Beginner)',
             description:
                 'You understand and use simple words and phrases for everyday situations.',
             buttonText: 'Learn',
             type: CategoryCardType.level,
+            onLearnPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const WordLearningScreen(),
+                ),
+              );
+            },
+            onQuizPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const WordQuizzingScreen(),
+                ),
+              );
+            },
           ),
           SizedBox(height: 24),
           CategoryCard(
@@ -95,19 +113,40 @@ class _LearnScreenState extends State<LearnScreen> {
                 'You understand common expressions and can communicate in basic daily situations.',
             buttonText: 'Learn',
             type: CategoryCardType.level,
+            onLearnPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const WordLearningScreen(),
+                ),
+              );
+            },
+            onQuizPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const WordQuizzingScreen(),
+                ),
+              );
+            },
           ),
         ],
       );
     } else {
       // ✅ WORD TYPES TAB
       return ListView(
-        children: const [
+        children: [
           CategoryCard(
             title: 'Pronouns',
             description:
                 'Replace nouns to avoid repetition or to refer back to something.',
             buttonText: 'Learn',
             type: CategoryCardType.wordtype,
+            onLearnPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const WordLearningScreen(),
+                ),
+              );
+            },
           ),
           SizedBox(height: 24),
           CategoryCard(
@@ -116,6 +155,13 @@ class _LearnScreenState extends State<LearnScreen> {
                 'Show relationships between words or parts of a sentence.',
             buttonText: 'Learn',
             type: CategoryCardType.wordtype,
+            onLearnPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const WordLearningScreen(),
+                ),
+              );
+            },
           ),
         ],
       );

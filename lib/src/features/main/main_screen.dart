@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wort_plus/src/features/home/home_screen.dart';
-import 'package:wort_plus/src/features/learn/learn_screen.dart';
+import 'package:wort_plus/src/features/learn/presentation/learn_screen.dart';
 //import 'package:wort_plus/src/features/quiz/quiz_screen.dart';
 import 'package:wort_plus/src/features/profile/profile_screen.dart';
 import 'package:wort_plus/src/common/app_bottom_navigation.dart';

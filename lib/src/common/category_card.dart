@@ -10,6 +10,8 @@ class CategoryCard extends StatelessWidget {
   final String description;
   final String buttonText;
   final CategoryCardType type;
+  final VoidCallback onLearnPressed;
+  final VoidCallback? onQuizPressed;
 
   const CategoryCard({
     super.key,
@@ -17,6 +19,8 @@ class CategoryCard extends StatelessWidget {
     required this.description,
     this.buttonText = 'Start',
     this.type = CategoryCardType.level, // default
+    required this.onLearnPressed,
+    this.onQuizPressed,
   });
 
   @override
@@ -57,17 +61,13 @@ class CategoryCard extends StatelessWidget {
           CustomElevatedButton(
             text: "Quiz", // Fix
             width: 110.0,
-            onPressed: () {
-              // TODO: Navigate to Quiz
-            },
+            onPressed: onQuizPressed,
           ),
           const SizedBox(width: 16),
           CustomElevatedButton(
             text: buttonText,
             width: 110.0, // frei belegbar (z.B. "Learn")
-            onPressed: () {
-              // TODO: Navigate to Learn
-            },
+            onPressed: onLearnPressed,
           ),
         ],
       );
@@ -78,9 +78,7 @@ class CategoryCard extends StatelessWidget {
         child: CustomElevatedButton(
           text: buttonText,
           width: 110.0,
-          onPressed: () {
-            // TODO: Navigate to Learn
-          },
+          onPressed: onLearnPressed,
         ),
       );
     }

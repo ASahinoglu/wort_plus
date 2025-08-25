@@ -10,11 +10,11 @@ class UserSession {
   final String sessionType; // z. B. "quiz", "learn"
   final String? wordLevel; // optional (z. B. "A1")
   final String? wordType; // optional (z. B. "verb")
-  final int? numWords; // Anzahl Wörter in Session
-  final int? durationSeconds; // Dauer der Session
+  final int? wordCounts; // Anzahl Wörter in Session
+  final int? sessionTime; // Dauer der Session
   final int? amountLearned; // wie viele neu gelernt
   final int? amountCorrect; // wie viele korrekt beantwortet
-  final int? totalPoints; // Punkte
+  final int? sessionPoints; // Punkte
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
@@ -25,11 +25,11 @@ class UserSession {
     required this.sessionType,
     this.wordLevel,
     this.wordType,
-    this.numWords,
-    this.durationSeconds,
+    this.wordCounts,
+    this.sessionTime,
     this.amountLearned,
     this.amountCorrect,
-    this.totalPoints,
+    this.sessionPoints,
     this.createdAt,
     this.updatedAt,
   });
@@ -42,10 +42,10 @@ class UserSession {
     String? wordLevel,
     String? wordType,
     int? numWords,
-    int? durationSeconds,
+    int? sessionTime,
     int? amountLearned,
     int? amountCorrect,
-    int? totalPoints,
+    int? sessionPoints,
     DateTime? createdAt,
     DateTime? updatedAt,
   }) {
@@ -56,11 +56,11 @@ class UserSession {
       sessionType: sessionType ?? this.sessionType,
       wordLevel: wordLevel ?? this.wordLevel,
       wordType: wordType ?? this.wordType,
-      numWords: numWords ?? this.numWords,
-      durationSeconds: durationSeconds ?? this.durationSeconds,
+      wordCounts: wordCounts ?? this.wordCounts,
+      sessionTime: sessionTime ?? this.sessionTime,
       amountLearned: amountLearned ?? this.amountLearned,
       amountCorrect: amountCorrect ?? this.amountCorrect,
-      totalPoints: totalPoints ?? this.totalPoints,
+      sessionPoints: sessionPoints ?? this.sessionPoints,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
     );
@@ -73,11 +73,11 @@ class UserSession {
     'session_type': sessionType,
     'word_level': wordLevel,
     'word_type': wordType,
-    'num_words': numWords,
-    'duration_seconds': durationSeconds,
+    'word_counts': wordCounts,
+    'session_time': sessionTime,
     'amount_learned': amountLearned,
     'amount_correct': amountCorrect,
-    'total_points': totalPoints,
+    'session_points': sessionPoints,
     'created_at': createdAt?.toIso8601String(),
     'updated_at': updatedAt?.toIso8601String(),
   };
@@ -92,11 +92,11 @@ class UserSession {
       sessionType: map['session_type'] as String,
       wordLevel: map['word_level'] as String?,
       wordType: map['word_type'] as String?,
-      numWords: map['num_words'] as int?,
-      durationSeconds: map['duration_seconds'] as int?,
+      wordCounts: map['word_counts'] as int?,
+      sessionTime: map['session_time'] as int?,
       amountLearned: map['amount_learned'] as int?,
       amountCorrect: map['amount_correct'] as int?,
-      totalPoints: map['total_points'] as int?,
+      sessionPoints: map['session_points'] as int?,
       createdAt: parseDT(map['created_at']),
       updatedAt: parseDT(map['updated_at']),
     );
