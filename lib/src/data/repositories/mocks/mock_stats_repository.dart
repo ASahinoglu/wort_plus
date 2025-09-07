@@ -9,6 +9,7 @@ class MockStatsRepository implements StatsRepository {
 
   @override
   Future<UserStats?> getUserStats(String userId) async {
+    await Future.delayed(const Duration(seconds: 2)); // ⏳ Simulierte Wartezeit
     try {
       return _stats.firstWhere((s) => s.userId == userId);
     } catch (e) {
@@ -18,17 +19,20 @@ class MockStatsRepository implements StatsRepository {
 
   @override
   Future<List<UserStatsDetail>> getUserStatsDetails(String userId) async {
+    await Future.delayed(const Duration(seconds: 2)); // ⏳ Simulierte Wartezeit
     return _details.where((d) => d.userId == userId).toList();
   }
 
   @override
   Future<void> saveUserStats(UserStats stats) async {
+    await Future.delayed(const Duration(seconds: 2)); // ⏳ Simulierte Wartezeit
     _stats.removeWhere((s) => s.userId == stats.userId);
     _stats.add(stats);
   }
 
   @override
   Future<void> saveUserStatsDetail(UserStatsDetail detail) async {
+    await Future.delayed(const Duration(seconds: 2)); // ⏳ Simulierte Wartezeit
     _details.removeWhere(
       (d) =>
           d.userId == detail.userId &&

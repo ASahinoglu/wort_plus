@@ -41,7 +41,7 @@ class UserSession {
     String? sessionType,
     String? wordLevel,
     String? wordType,
-    int? numWords,
+    int? wordCounts,
     int? sessionTime,
     int? amountLearned,
     int? amountCorrect,

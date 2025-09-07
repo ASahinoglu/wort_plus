@@ -7,7 +7,8 @@ class WordLevelTranslation {
   final int id; // PK
   final int levelId; // FK -> word_levels.id
   final int languageId; // FK -> languages.id
-  final String? levelDesc; // z. B. "Anfänger" oder "Beginner"
+  final String? levelLabel; //A1 (Anfänger) A2 (Beginner) B1... title
+  final String? levelDesc; // description, subtitle
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
@@ -15,6 +16,7 @@ class WordLevelTranslation {
     required this.id,
     required this.levelId,
     required this.languageId,
+    this.levelLabel,
     this.levelDesc,
     this.createdAt,
     this.updatedAt,
@@ -24,6 +26,7 @@ class WordLevelTranslation {
     int? id,
     int? levelId,
     int? languageId,
+    String? levelLabel,
     String? levelDesc,
     DateTime? createdAt,
     DateTime? updatedAt,
@@ -32,6 +35,7 @@ class WordLevelTranslation {
       id: id ?? this.id,
       levelId: levelId ?? this.levelId,
       languageId: languageId ?? this.languageId,
+      levelLabel: levelLabel ?? this.levelLabel,
       levelDesc: levelDesc ?? this.levelDesc,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
@@ -42,6 +46,7 @@ class WordLevelTranslation {
     'id': id,
     'level_id': levelId,
     'language_id': languageId,
+    'level_label': levelLabel,
     'level_desc': levelDesc,
     'created_at': createdAt?.toIso8601String(),
     'updated_at': updatedAt?.toIso8601String(),
@@ -54,6 +59,7 @@ class WordLevelTranslation {
       id: map['id'] as int,
       levelId: map['level_id'] as int,
       languageId: map['language_id'] as int,
+      levelLabel: map['level_label'] as String?,
       levelDesc: map['level_desc'] as String?,
       createdAt: parseDT(map['created_at']),
       updatedAt: parseDT(map['updated_at']),

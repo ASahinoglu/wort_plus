@@ -9,11 +9,13 @@ class MockSessionRepository implements SessionRepository {
 
   @override
   Future<void> addSession(UserSession session) async {
+    await Future.delayed(const Duration(seconds: 2)); // ⏳ Simulierte Wartezeit
     _sessions.add(session);
   }
 
   @override
   Future<UserSession?> getSessionById(int id) async {
+    await Future.delayed(const Duration(seconds: 2)); // ⏳ Simulierte Wartezeit
     // Loop statt firstWhere(..., orElse: () => null)
     for (var s in _sessions) {
       if (s.id == id) return s;
@@ -23,17 +25,20 @@ class MockSessionRepository implements SessionRepository {
 
   @override
   Future<List<UserSession>> getSessionsForUser(String userId) async {
+    await Future.delayed(const Duration(seconds: 2)); // ⏳ Simulierte Wartezeit
     return _sessions.where((s) => s.userId == userId).toList();
   }
 
   @override
   Future<void> updateSession(UserSession session) async {
+    await Future.delayed(const Duration(seconds: 2)); // ⏳ Simulierte Wartezeit
     _sessions.removeWhere((s) => s.id == session.id);
     _sessions.add(session);
   }
 
   @override
   Future<void> deleteSession(int id) async {
+    await Future.delayed(const Duration(seconds: 2)); // ⏳ Simulierte Wartezeit
     _sessions.removeWhere((s) => s.id == id);
   }
 }
